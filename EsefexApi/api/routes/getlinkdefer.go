@@ -23,7 +23,7 @@ func (h *RouteHandlers) GetLinkDefer() http.Handler {
 			LinkToken: linkToken,
 		}
 
-		tmpl, err := template.ParseFiles("./api/templates/link.html")
+		tmpl, err := template.ParseFiles("./ressource/templates/link.html")
 		if err != nil {
 			http.Error(w, "Error parsing template", http.StatusInternalServerError)
 			return

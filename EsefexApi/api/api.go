@@ -68,7 +68,7 @@ func (api *HttpApi) run() {
 	router.Handle("/dump", cors(h.GetDump()))
 	router.Handle("/", cors(h.GetIndex())).Methods("GET")
 
-	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./api/public/"))))
+	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./ressource/public/"))))
 
 	router.Handle("/api/ws", cors(auth(h.GetWs()))).Methods("GET")
 

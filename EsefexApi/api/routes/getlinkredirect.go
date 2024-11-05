@@ -53,7 +53,7 @@ func (h *RouteHandlers) GetLinkRedirect() http.Handler {
 
 		w.Header().Set("Content-Type", "text/html")
 
-		tmpl, err := template.ParseFiles("./api/templates/linkredirect.html")
+		tmpl, err := template.ParseFiles("./ressource/templates/linkredirect.html")
 		if err != nil {
 			http.Error(w, "Error parsing template", http.StatusInternalServerError)
 			return
