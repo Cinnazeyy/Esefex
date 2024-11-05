@@ -25,7 +25,7 @@ func GetHelpMessage(category string) (string, error) {
 		fname = helpMessages[""]
 	}
 
-	p := fmt.Sprintf("bot/commands/helpmsg/%s", fname)
+	p := fmt.Sprintf("ressource/help/%s", fname)
 	buf, err := os.ReadFile(p)
 	if err != nil {
 		return "", errors.Wrap(err, "Error reading help message")
