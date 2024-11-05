@@ -25,9 +25,14 @@ import (
 )
 
 func main() {
-	log.Printf("Starting Esefex API with PID: %d", os.Getpid())
+	path, err := os.Getwd()
+	if err != nil {
+		log.Println(err)
+	}
 
-	err := godotenv.Load()
+	log.Printf("Starting Esefex API in %s with PID: %d", path, os.Getpid())
+
+	err = godotenv.Load()
 	if err != nil {
 		log.Println("Error loading .env file, assuming all variables are set in the environment")
 	}

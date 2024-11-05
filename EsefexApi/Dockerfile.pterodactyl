@@ -1,0 +1,32 @@
+FROM jokil/esefexapi:latest AS src
+
+FROM ubuntu:24.10 AS runner
+
+RUN apt-get update && \
+    apt-get install -y \
+        sudo \
+        passwd \
+        libc6 \
+        ca-certificates
+
+RUN useradd -m -d /home/container -s /bin/bash container
+
+COPY --from=src --chown=container /api/main /home/container/main
+COPY --from=src --chown=container /api/config.toml /home/container/config.toml
+
+WORKDIR /home/container
+USER container
+
+ENV USER=container HOME=/home/container
+
+COPY ./entrypoint.sh /entrypoint.sh
+# RUN chmod a+x /home/container/entrypoint.sh
+# RUN chmod a+x /home/container/main
+
+
+
+CMD ["/bin/bash", "/entrypoint.sh"]
+# CMD ["tail", "-f", "/dev/null"]
+# ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
+# CMD ["/home/container/main"]
+

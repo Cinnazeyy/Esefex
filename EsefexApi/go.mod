@@ -1,6 +1,6 @@
 module esefexapi
 
-go 1.21.3
+go 1.23
 
 require (
 	github.com/bwmarrin/discordgo v0.27.1
@@ -33,7 +33,7 @@ require (
 )
 
 require (
-	github.com/gorilla/websocket v1.5.1 // indirect
+	github.com/gorilla/websocket v1.5.1
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
 	github.com/jedib0t/go-pretty/v6 v6.5.3
 	github.com/pkg/errors v0.9.1
