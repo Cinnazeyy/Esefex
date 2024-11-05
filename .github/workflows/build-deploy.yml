@@ -1,8 +1,8 @@
 name: Go Backend CI/CD
 
-on: 
+on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build-and-deploy:
@@ -23,19 +23,18 @@ jobs:
 
       - name: Push Docker Image
         run: docker push jokil/esefexapi:latest
-                    
-      - name: Deploy to production     
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ vars.HOST }}
-          username: ${{ vars.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd api
-            docker compose down
-            > .env.github
-            echo BOT_TOKEN=${{ secrets.BOT_TOKEN }} >> .env.github
-            echo DOMAIN=${{ vars.DOMAIN }} >> .env.github
-            docker compose pull
-            docker compose up -d
-            
+
+      # - name: Deploy to production
+      #   uses: appleboy/ssh-action@v1.0.0
+      #   with:
+      #     host: ${{ vars.HOST }}
+      #     username: ${{ vars.USERNAME }}
+      #     key: ${{ secrets.SSH_KEY }}
+      #     script: |
+      #       cd api
+      #       docker compose down
+      #       > .env.github
+      #       echo BOT_TOKEN=${{ secrets.BOT_TOKEN }} >> .env.github
+      #       echo DOMAIN=${{ vars.DOMAIN }} >> .env.github
+      #       docker compose pull
+      #       docker compose up -d
