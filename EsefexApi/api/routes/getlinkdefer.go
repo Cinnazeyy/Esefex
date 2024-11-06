@@ -2,6 +2,7 @@ package routes
 
 import (
 	"html/template"
+	"log"
 	"net/http"
 )
 
@@ -25,6 +26,7 @@ func (h *RouteHandlers) GetLinkDefer() http.Handler {
 
 		tmpl, err := template.ParseFiles("./ressource/templates/link.html")
 		if err != nil {
+			log.Println(err)
 			http.Error(w, "Error parsing template", http.StatusInternalServerError)
 			return
 		}

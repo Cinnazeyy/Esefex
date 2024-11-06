@@ -7,7 +7,8 @@ RUN apt-get update && \
         sudo \
         passwd \
         libc6 \
-        ca-certificates
+        ca-certificates \
+        ffmpeg
 
 RUN useradd -m -d /home/container -s /bin/bash container
 

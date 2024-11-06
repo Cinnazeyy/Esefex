@@ -38,7 +38,7 @@ require (
 	github.com/jedib0t/go-pretty/v6 v6.5.3
 	github.com/pkg/errors v0.9.1
 	github.com/samber/lo v1.39.0
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.9.0
 	golang.org/x/crypto v0.16.0 // indirect
 	golang.org/x/sys v0.16.0 // indirect
 	layeh.com/gopus v0.0.0-20210501142526-1ee02d434e32
